@@ -2,6 +2,9 @@
   "name": "discordbot",
   "module": "main.js",
   "type": "module",
+  "scripts": {
+    "dev": "bun run --watch main.js"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
@@ -14,6 +17,7 @@
     "discord-api-types": "^0.37.56",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
-    "eris": "^0.17.2"
+    "eris": "^0.17.2",
+    "mongoose": "^7.5.2"
   }
 }

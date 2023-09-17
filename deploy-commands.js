@@ -8,22 +8,17 @@ const GUILD_ID = process.env.GUILD_ID
 
 const commands = [
     new SlashCommandBuilder()
-        .setName('birthday') //command name
+        .setName('birthday')
         .setDescription('Set your birthday')
-        .addStringOption((option) =>
-            option
-                .setName('date')
-                .setDescription('Select your birthday')
-                .setRequired(true)
-                .addChoices({ name: 'Day 1', value: "Day_1" }, { name: 'Day 2', value: "Day_2" })
-        )
-        .addStringOption((option) =>
-            option
-                .setName('month')
-                .setDescription('Select your birthday month')
-                .setRequired(true)
-                .addChoices({ name: 'January', value: "January" }, { name: 'February', value: "February" })
-        )
+        .addIntegerOption(option =>
+            option.setName('month')
+                .setDescription('Month of birth')
+                .setRequired(true))
+        .addIntegerOption(option =>
+            option.setName('day')
+                .setDescription('Day of birth')
+                .setRequired(true))
+
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(discordToken);
